@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<JUCERPROJECT id="NI0azb" name="SynthLab" projectType="guiapp" useAppConfig="1"
+              addUsingNamespaceToJuceHeader="0" displaySplashScreen="1" jucerFormatVersion="1"
+              cppLanguageStandard="17">
+  <MAINGROUP id="iesmbu" name="SynthLab">
+    <GROUP id="{3D2EBAB6-11D5-8ACA-B4A2-C2E47357F903}" name="ext">
+      <GROUP id="{836AA39F-7636-FEF0-253C-31639304393F}" name="plog">
+        <GROUP id="{04B2FED2-988C-89B4-FD91-8ECE809A0F7C}" name="Appenders">
+          <FILE id="kcZTCT" name="AndroidAppender.h" compile="0" resource="0"
+                file="ext/plog/include/plog/Appenders/AndroidAppender.h"/>
+          <FILE id="ae15QQ" name="ColorConsoleAppender.h" compile="0" resource="0"
+                file="ext/plog/include/plog/Appenders/ColorConsoleAppender.h"/>
+          <FILE id="J53Xg0" name="ConsoleAppender.h" compile="0" resource="0"
+                file="ext/plog/include/plog/Appenders/ConsoleAppender.h"/>
+          <FILE id="z5Rtbu" name="DebugOutputAppender.h" compile="0" resource="0"
+                file="ext/plog/include/plog/Appenders/DebugOutputAppender.h"/>
+          <FILE id="PQ54Lu" name="DynamicAppender.h" compile="0" resource="0"
+                file="ext/plog/include/plog/Appenders/DynamicAppender.h"/>
+          <FILE id="AO3Uq3" name="EventLogAppender.h" compile="0" resource="0"
+                file="ext/plog/include/plog/Appenders/EventLogAppender.h"/>
+          <FILE id="wK0LcI" name="IAppender.h" compile="0" resource="0" file="ext/plog/include/plog/Appenders/IAppender.h"/>
+          <FILE id="g0j08H" name="RollingFileAppender.h" compile="0" resource="0"
+                file="ext/plog/include/plog/Appenders/RollingFileAppender.h"/>
+        </GROUP>
+        <GROUP id="{156547BD-4682-131C-5024-994C0E4E6A96}" name="Converters">
+          <FILE id="KSUBKZ" name="NativeEOLConverter.h" compile="0" resource="0"
+                file="ext/plog/include/plog/Converters/NativeEOLConverter.h"/>
+          <FILE id="meX1Hq" name="UTF8Converter.h" compile="0" resource="0" file="ext/plog/include/plog/Converters/UTF8Converter.h"/>
+        </GROUP>
+        <GROUP id="{441A5B4E-4B49-9C89-EBAB-9B28A0137E0E}" name="Formatters">
+          <FILE id="rIJdfQ" name="CsvFormatter.h" compile="0" resource="0" file="ext/plog/include/plog/Formatters/CsvFormatter.h"/>
+          <FILE id="GEXI3c" name="FuncMessageFormatter.h" compile="0" resource="0"
+                file="ext/plog/include/plog/Formatters/FuncMessageFormatter.h"/>
+          <FILE id="D7JAg8" name="MessageOnlyFormatter.h" compile="0" resource="0"
+                file="ext/plog/include/plog/Formatters/MessageOnlyFormatter.h"/>
+          <FILE id="DIOtSO" name="TxtFormatter.h" compile="0" resource="0" file="ext/plog/include/plog/Formatters/TxtFormatter.h"/>
+        </GROUP>
+        <GROUP id="{5F0F66F6-3CEE-C76D-A181-4CD3B6CDD2B9}" name="Helpers">
+          <FILE id="bCdttz" name="AscDump.h" compile="0" resource="0" file="ext/plog/include/plog/Helpers/AscDump.h"/>
+          <FILE id="d0g5Qg" name="HexDump.h" compile="0" resource="0" file="ext/plog/include/plog/Helpers/HexDump.h"/>
+          <FILE id="BUxVLb" name="PrintVar.h" compile="0" resource="0" file="ext/plog/include/plog/Helpers/PrintVar.h"/>
+        </GROUP>
+        <GROUP id="{9E7B8999-9062-D950-0E65-6980359B3A9A}" name="Initializers">
+          <FILE id="k9XMRp" name="ConsoleInitializer.h" compile="0" resource="0"
+                file="ext/plog/include/plog/Initializers/ConsoleInitializer.h"/>
+          <FILE id="WWIcmw" name="RollingFileInitializer.h" compile="0" resource="0"
+                file="ext/plog/include/plog/Initializers/RollingFileInitializer.h"/>
+        </GROUP>
+        <FILE id="O06nIV" name="Init.h" compile="0" resource="0" file="ext/plog/include/plog/Init.h"/>
+        <FILE id="ImzrrI" name="Log.h" compile="0" resource="0" file="ext/plog/include/plog/Log.h"/>
+        <FILE id="CQTCod" name="Logger.h" compile="0" resource="0" file="ext/plog/include/plog/Logger.h"/>
+        <FILE id="NMxWH2" name="Record.h" compile="0" resource="0" file="ext/plog/include/plog/Record.h"/>
+        <FILE id="qW6D3I" name="Severity.h" compile="0" resource="0" file="ext/plog/include/plog/Severity.h"/>
+        <FILE id="zGlRNr" name="Util.h" compile="0" resource="0" file="ext/plog/include/plog/Util.h"/>
+        <FILE id="w9oPvE" name="WinApi.h" compile="0" resource="0" file="ext/plog/include/plog/WinApi.h"/>
+      </GROUP>
+    </GROUP>
+    <GROUP id="{DBDFA04A-C2D6-4E2B-1BFF-2BDEE56500C5}" name="Source">
+      <FILE id="avNIM8" name="stdafx.cpp" compile="1" resource="0" file="Source/stdafx.cpp"
+            skipPCH="0"/>
+      <FILE id="lHcWpD" name="stdafx.h" compile="0" resource="0" file="Source/stdafx.h"/>
+      <GROUP id="{5632DAD8-5089-874C-AF4B-09D9C8AF5915}" name="Core">
+        <GROUP id="{AE7A7FCC-64DC-D736-0A8E-2957B19DBD19}" name="Log">
+          <FILE id="jUgLOk" name="LogAppender.cpp" compile="1" resource="0" file="Source/Core/Log/LogAppender.cpp"/>
+          <FILE id="JxnOHS" name="LogAppender.h" compile="0" resource="0" file="Source/Core/Log/LogAppender.h"/>
+          <FILE id="gyq0ES" name="LogMain.cpp" compile="1" resource="0" file="Source/Core/Log/LogMain.cpp"/>
+          <FILE id="nFyysr" name="LogMain.h" compile="0" resource="0" file="Source/Core/Log/LogMain.h"/>
+          <FILE id="OFFz77" name="LogRecord.cpp" compile="1" resource="0" file="Source/Core/Log/LogRecord.cpp"/>
+          <FILE id="h5ef9L" name="LogRecord.h" compile="0" resource="0" file="Source/Core/Log/LogRecord.h"/>
+          <FILE id="vRIYbG" name="LogStorage.cpp" compile="1" resource="0" file="Source/Core/Log/LogStorage.cpp"/>
+          <FILE id="pmw5Y0" name="LogStorage.h" compile="0" resource="0" file="Source/Core/Log/LogStorage.h"/>
+          <FILE id="mxH8VG" name="LogTableListBoxModel.cpp" compile="1" resource="0"
+                file="Source/Core/Log/LogTableListBoxModel.cpp"/>
+          <FILE id="IVvy0s" name="LogTableListBoxModel.h" compile="0" resource="0"
+                file="Source/Core/Log/LogTableListBoxModel.h"/>
+          <FILE id="wcMl1c" name="LogWindow.cpp" compile="1" resource="0" file="Source/Core/Log/LogWindow.cpp"/>
+          <FILE id="YZIfCT" name="LogWindow.h" compile="0" resource="0" file="Source/Core/Log/LogWindow.h"/>
+        </GROUP>
+        <FILE id="YO6oWb" name="Singleton.h" compile="0" resource="0" file="Source/Core/Singleton.h"/>
+      </GROUP>
+      <FILE id="NVCqhT" name="Main.cpp" compile="1" resource="0" file="Source/Main.cpp"/>
+      <FILE id="E0EJ0v" name="MainComponent.h" compile="0" resource="0" file="Source/MainComponent.h"/>
+      <FILE id="rJuZTt" name="MainComponent.cpp" compile="1" resource="0"
+            file="Source/MainComponent.cpp"/>
+    </GROUP>
+  </MAINGROUP>
+  <JUCEOPTIONS JUCE_STRICT_REFCOUNTEDPOINTER="1"/>
+  <EXPORTFORMATS>
+    <VS2022 targetFolder="Builds/VisualStudio2022">
+      <CONFIGURATIONS>
+        <CONFIGURATION isDebug="1" name="Debug" targetName="SynthLab" headerPath="$(ProjectDir)..\..\ext\plog\include\&#10;$(ProjectDir)..\..\Source"
+                       usePrecompiledHeaderFile="1" precompiledHeaderFile="Source\stdafx.cpp"/>
+      </CONFIGURATIONS>
+      <MODULEPATHS>
+        <MODULEPATH id="juce_core" path="ext\JUCE\modules"/>
+        <MODULEPATH id="juce_data_structures" path="ext\JUCE\modules"/>
+        <MODULEPATH id="juce_events" path="ext\JUCE\modules"/>
+        <MODULEPATH id="juce_graphics" path="ext\JUCE\modules"/>
+        <MODULEPATH id="juce_gui_basics" path="ext\JUCE\modules"/>
+      </MODULEPATHS>
+    </VS2022>
+  </EXPORTFORMATS>
+  <MODULES>
+    <MODULE id="juce_core" showAllCode="0" useLocalCopy="1" useGlobalPath="0"/>
+    <MODULE id="juce_data_structures" showAllCode="0" useLocalCopy="1" useGlobalPath="0"/>
+    <MODULE id="juce_events" showAllCode="0" useLocalCopy="1" useGlobalPath="0"/>
+    <MODULE id="juce_graphics" showAllCode="0" useLocalCopy="1" useGlobalPath="0"/>
+    <MODULE id="juce_gui_basics" showAllCode="0" useLocalCopy="1" useGlobalPath="0"/>
+  </MODULES>
+</JUCERPROJECT>
