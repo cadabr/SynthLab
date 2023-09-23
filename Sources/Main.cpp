@@ -1,24 +1,35 @@
 #include "stdafx.h"
 #include "MainComponent.h"
 #include "Core\Log\LogMain.h"
+#include "Core\GlobPropsFile.h"
+
+using namespace juce;
 
 class SynthLabApplication  : public juce::JUCEApplication
 {
 public:
     SynthLabApplication() {}
 
-    const juce::String getApplicationName() override       { return ProjectInfo::projectName; }
-    const juce::String getApplicationVersion() override    { return ProjectInfo::versionString; }
+    const String getApplicationName() override       { return ProjectInfo::projectName; }
+    const String getApplicationVersion() override    { return ProjectInfo::versionString; }
     bool moreThanOneInstanceAllowed() override             { return true; }
 
-    void initialise (const juce::String& commandLine) override
+    void initialise (const String& commandLine) override
     {
+        PropertiesFile::Options o;
+        o.applicationName = "SynthLab";
+        o.filenameSuffix = ".props";
+        o.folderName = "SynthLab";
+        o.osxLibrarySubFolder = "Application Support/SynthLab";
+        o.millisecondsBeforeSaving = 2000;
+        gPropsFile.reset(new PropertiesFile(o));
+
         mainWindow.reset (new MainWindow (getApplicationName()));
         logMain.reset(new LogMain());
         logMain->Show();
-        PLOG_DEBUG << L"debug";
-        PLOG_DEBUG << L"debug 2";
-        PLOG_INFO << L"info message";
+        LOGD << L"debug";
+        LOGD << L"debug 2";
+        LOGI << L"info message";
     }
 
     void shutdown() override
@@ -26,6 +37,8 @@ public:
         // Add your application's shutdown code here..
 
         mainWindow = nullptr; // (deletes our window)
+        gPropsFile->save();
+        gPropsFile.reset();
     }
 
     void systemRequestedQuit() override
