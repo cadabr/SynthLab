@@ -57,8 +57,6 @@
       </GROUP>
     </GROUP>
     <GROUP id="{DBDFA04A-C2D6-4E2B-1BFF-2BDEE56500C5}" name="Sources">
-      <FILE id="avNIM8" name="stdafx.cpp" compile="1" resource="0" file="Sources/stdafx.cpp"
-            skipPCH="0"/>
       <FILE id="lHcWpD" name="stdafx.h" compile="0" resource="0" file="Sources/stdafx.h"/>
       <GROUP id="{5632DAD8-5089-874C-AF4B-09D9C8AF5915}" name="Core">
         <GROUP id="{AE7A7FCC-64DC-D736-0A8E-2957B19DBD19}" name="Log">
@@ -93,7 +91,7 @@
     <VS2022 targetFolder="Builds/VisualStudio2022">
       <CONFIGURATIONS>
         <CONFIGURATION isDebug="1" name="Debug" targetName="SynthLab" headerPath="$(ProjectDir)..\..\ext\plog\include\&#10;$(ProjectDir)..\..\Sources"
-                       usePrecompiledHeaderFile="1" precompiledHeaderFile="Source\stdafx.cpp"/>
+                       usePrecompiledHeaderFile="1" precompiledHeaderFile="Sources\stdafx.h"/>
       </CONFIGURATIONS>
       <MODULEPATHS>
         <MODULEPATH id="juce_core" path="ext\JUCE\modules"/>
