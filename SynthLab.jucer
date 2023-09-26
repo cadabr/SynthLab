@@ -57,6 +57,10 @@
       </GROUP>
     </GROUP>
     <GROUP id="{DBDFA04A-C2D6-4E2B-1BFF-2BDEE56500C5}" name="Sources">
+      <FILE id="UFAzPJ" name="AudioAppComponent.cpp" compile="1" resource="0"
+            file="Sources/AudioAppComponent.cpp"/>
+      <FILE id="qDYGVY" name="AudioAppComponent.h" compile="0" resource="0"
+            file="Sources/AudioAppComponent.h"/>
       <FILE id="lHcWpD" name="stdafx.h" compile="0" resource="0" file="Sources/stdafx.h"/>
       <GROUP id="{5632DAD8-5089-874C-AF4B-09D9C8AF5915}" name="Core">
         <GROUP id="{AE7A7FCC-64DC-D736-0A8E-2957B19DBD19}" name="Log">
@@ -99,14 +103,26 @@
         <MODULEPATH id="juce_events" path="ext\JUCE\modules"/>
         <MODULEPATH id="juce_graphics" path="ext\JUCE\modules"/>
         <MODULEPATH id="juce_gui_basics" path="ext\JUCE\modules"/>
+        <MODULEPATH id="juce_audio_utils" path="../JUCE/modules"/>
+        <MODULEPATH id="juce_audio_processors" path="../JUCE/modules"/>
+        <MODULEPATH id="juce_gui_extra" path="../JUCE/modules"/>
+        <MODULEPATH id="juce_audio_basics" path="../JUCE/modules"/>
+        <MODULEPATH id="juce_audio_formats" path="../JUCE/modules"/>
+        <MODULEPATH id="juce_audio_devices" path="../JUCE/modules"/>
       </MODULEPATHS>
     </VS2022>
   </EXPORTFORMATS>
   <MODULES>
+    <MODULE id="juce_audio_basics" showAllCode="1" useLocalCopy="1" useGlobalPath="0"/>
+    <MODULE id="juce_audio_devices" showAllCode="1" useLocalCopy="1" useGlobalPath="0"/>
+    <MODULE id="juce_audio_formats" showAllCode="1" useLocalCopy="1" useGlobalPath="0"/>
+    <MODULE id="juce_audio_processors" showAllCode="1" useLocalCopy="1" useGlobalPath="0"/>
+    <MODULE id="juce_audio_utils" showAllCode="1" useLocalCopy="1" useGlobalPath="0"/>
     <MODULE id="juce_core" showAllCode="0" useLocalCopy="1" useGlobalPath="0"/>
     <MODULE id="juce_data_structures" showAllCode="0" useLocalCopy="1" useGlobalPath="0"/>
     <MODULE id="juce_events" showAllCode="0" useLocalCopy="1" useGlobalPath="0"/>
     <MODULE id="juce_graphics" showAllCode="0" useLocalCopy="1" useGlobalPath="0"/>
     <MODULE id="juce_gui_basics" showAllCode="0" useLocalCopy="1" useGlobalPath="0"/>
+    <MODULE id="juce_gui_extra" showAllCode="1" useLocalCopy="1" useGlobalPath="0"/>
   </MODULES>
 </JUCERPROJECT>

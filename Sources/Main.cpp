@@ -1,5 +1,6 @@
 #include "stdafx.h"
 #include "MainComponent.h"
+#include "AudioAppDemo.h"
 #include "Core\Log\LogMain.h"
 #include "Core\GlobPropsFile.h"
 
@@ -65,7 +66,7 @@ public:
                               DocumentWindow::allButtons)
         {
             setUsingNativeTitleBar (true);
-            setContentOwned (new MainComponent(), true);
+            setContentOwned (new AudioAppDemo(), true);
 
            #if JUCE_IOS || JUCE_ANDROID
             setFullScreen (true);
