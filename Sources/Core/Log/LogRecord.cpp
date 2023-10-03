@@ -1,34 +1,49 @@
 #include "stdafx.h"
-#include "LogStorage.h"
+#include "LogRecord.h"
+#include "LogMain.h"
 
-LogRecord::LogRecord(const plog::Record& pr)
-: plog::Record(pr.getSeverity(), pr.getFunc(), pr.getLine(), pr.getFile(), pr.getObject(), pr.getInstanceId())
-, message(plog::util::toNarrow(pr.getMessage(), CP_UTF8))
+using namespace std;
+using namespace juce;
+
+LogRecord::LogRecord(Level lvl)
+: time(Time::getCurrentTime())
+, level(lvl)
 {
 }
 
 LogRecord::LogRecord(const LogRecord& r)
-: plog::Record(r.getSeverity(), r.getFunc(), r.getLine(), r.getFile(), r.getObject(), r.getInstanceId())
-, message(r.StrMessage())
+: time(r.time)
+, level(r.level)
+, message(r.message)
 {
 }
 
 std::string LogRecord::StrTime() const
 {
-    char timeString[std::size("%H:%M:%S")];
-    std::strftime(std::data(timeString), std::size(timeString), "%H:%M:%S", std::gmtime(&getTime().time));
-
     std::stringstream res;
-    res << timeString << ":" << getTime().millitm;
+    res << time.getHours() << ":" << time.getMinutes() << ":" << time.getSeconds() << ":" << time.getMilliseconds();
     return res.str();
 }
 
 std::string LogRecord::StrLevel() const
 {
-    return plog::severityToString(getSeverity());
+    switch (level)
+    {
+    case Level::fatal:   return "fatal";
+    case Level::error:   return "error";
+    case Level::warning: return "warning";
+    case Level::info:    return "info";
+    case Level::debug:   return "debug";
+    }
+    return "UNKNOWN";
 }
 
 std::string LogRecord::StrMessage() const
 {
     return message;
+}
+
+void LogRecord::flush()
+{
+    LogMain::getInstance()->Add(*this);
 }

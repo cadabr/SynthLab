@@ -17,6 +17,8 @@ public:
 
     void tableSortOrderChanged(juce::TableHeaderComponent* tableHeader) override;
 
+    void updateLog();
+
 private:
     juce::TableListBox tableListBox;
     LogTableListBoxModel logTableListBoxModel;

@@ -1,30 +1,32 @@
 #include "stdafx.h"
 #include "AudioAppDemo.h"
+#include "Core/Log/LogRecord.h"
 
 using namespace juce;
 using namespace std;
 
 AudioAppDemo::AudioAppDemo()
 {
-	setAudioChannels(0, 2);
-	setSize(800, 600);
+    setAudioChannels(0, 2);
+    setSize(800, 600);
 }
 
 AudioAppDemo::~AudioAppDemo()
 {
-	shutdownAudio();
+    shutdownAudio();
 }
 
 void AudioAppDemo::prepareToPlay(int samplesPerBlockExpected, double newSampleRate)
 {
-	sampleRate = newSampleRate;
-	expectedSamplesPerBlock = samplesPerBlockExpected;
+    sampleRate = newSampleRate;
+    expectedSamplesPerBlock = samplesPerBlockExpected;
 }
 
 void AudioAppDemo::getNextAudioBlock(const AudioSourceChannelInfo& bufferToFill)
 {
     bufferToFill.clearActiveBufferRegion();
     auto originalPhase = phase;
+    LOGD("asd");
 
     for (auto chan = 0; chan < bufferToFill.buffer->getNumChannels(); ++chan)
     {

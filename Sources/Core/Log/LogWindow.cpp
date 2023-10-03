@@ -1,61 +1,61 @@
 #include "stdafx.h"
 #include "LogWindow.h"
-#include "Core/GlobPropsFile.h"
+#include "SynthLabApplication.h"
 
-LogWindow::LogWindow(juce::String name)
-    : DocumentWindow(
-        name,
-        juce::Desktop::getInstance().getDefaultLookAndFeel().findColour(juce::ResizableWindow::backgroundColourId),
-        DocumentWindow::allButtons)
+using namespace juce;
+
+LogWindow::LogWindow(String name)
+: DocumentWindow(name, Desktop::getInstance().getDefaultLookAndFeel().findColour(ResizableWindow::backgroundColourId), DocumentWindow::allButtons)
 {
-    tableListBox.setSize(gPropsFile->getIntValue("LogWndWidth", 1200) , gPropsFile->getIntValue("LogWndHeight", 600));
-    tableListBox.getHeader().addColumn("Time", 1, gPropsFile->getIntValue("LogWndTimeColumnSize", 70));
-    tableListBox.getHeader().addColumn("Level", 2, gPropsFile->getIntValue("LogWndLevelColumnSize", 70));
-    tableListBox.getHeader().addColumn("Message", 3, gPropsFile->getIntValue("LogWndMessageColumnSize", 70));
-
+    auto* propsFile = SynthLabApplication::getInstance()->getPropsFile();
+    tableListBox.setSize(propsFile->getIntValue("LogWndWidth", 1200) , propsFile->getIntValue("LogWndHeight", 600));
+    tableListBox.getHeader().addColumn("Time", 1, propsFile->getIntValue("LogWndTimeColumnSize", 70));
+    tableListBox.getHeader().addColumn("Level", 2, propsFile->getIntValue("LogWndLevelColumnSize", 70));
+    tableListBox.getHeader().addColumn("Message", 3, propsFile->getIntValue("LogWndMessageColumnSize", 70));
     tableListBox.getHeader().addListener(this);
-
     tableListBox.autoSizeColumn(1);
     tableListBox.autoSizeColumn(2);
+    tableListBox.setModel(&logTableListBoxModel);
 
     setUsingNativeTitleBar(true);
-
-    tableListBox.setModel(&logTableListBoxModel);
     setContentOwned(&tableListBox, true);
-
-#if JUCE_IOS || JUCE_ANDROID
-    setFullScreen(true);
-#else
     setResizable(true, true);
     centreWithSize(getWidth(), getHeight());
-#endif
 }
 
 void LogWindow::resized()
 {
     DocumentWindow::resized();
-    gPropsFile->setValue("LogWndWidth", getWidth());
-    gPropsFile->setValue("LogWndHeight", getHeight());
-    gPropsFile->saveIfNeeded();
+    auto* propsFile = SynthLabApplication::getInstance()->getPropsFile();
+    propsFile->setValue("LogWndWidth", getWidth());
+    propsFile->setValue("LogWndHeight", getHeight());
+    propsFile->saveIfNeeded();
 }
 
 void LogWindow::closeButtonPressed()
 {
 }
 
-void LogWindow::tableColumnsChanged(juce::TableHeaderComponent* tableHeader)
+void LogWindow::tableColumnsChanged(TableHeaderComponent* tableHeader)
 {
 }
 
-void LogWindow::tableColumnsResized(juce::TableHeaderComponent* tableHeader)
+void LogWindow::tableColumnsResized(TableHeaderComponent* tableHeader)
 {
-    gPropsFile->setValue("LogWndTimeColumnSize", tableHeader->getColumnWidth(1));
-    gPropsFile->setValue("LogWndLevelColumnSize", tableHeader->getColumnWidth(2));
-    gPropsFile->setValue("LogWndMessageColumnSize", tableHeader->getColumnWidth(3));
-    gPropsFile->saveIfNeeded();
+    auto* propsFile = SynthLabApplication::getInstance()->getPropsFile();
+    propsFile->setValue("LogWndTimeColumnSize", tableHeader->getColumnWidth(1));
+    propsFile->setValue("LogWndLevelColumnSize", tableHeader->getColumnWidth(2));
+    propsFile->setValue("LogWndMessageColumnSize", tableHeader->getColumnWidth(3));
+    propsFile->saveIfNeeded();
 }
 
-void LogWindow::tableSortOrderChanged(juce::TableHeaderComponent* tableHeader)
+void LogWindow::tableSortOrderChanged(TableHeaderComponent* tableHeader)
 {
 }
 
+void LogWindow::updateLog()
+{
+    MessageManagerLock lock;
+    tableListBox.updateContent();
+    tableListBox.scrollToEnsureRowIsOnscreen(tableListBox.getNumRows() - 1);
+}

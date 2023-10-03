@@ -1,6 +1,6 @@
 #include "stdafx.h"
-#include "LogStorage.h"
 #include "LogTableListBoxModel.h"
+#include "Core/Log/LogMain.h"
 
 LogTableListBoxModel::LogTableListBoxModel()
 {
@@ -12,7 +12,7 @@ LogTableListBoxModel::~LogTableListBoxModel()
 
 int LogTableListBoxModel::getNumRows()
 {
-    return LogStorage::getInstance().GetSize();
+    return LogMain::getInstance()->GetSize();
 }
 
 void LogTableListBoxModel::paintRowBackground(juce::Graphics& g, int rowNumber, int width, int height, bool rowIsSelected)
@@ -34,13 +34,13 @@ void LogTableListBoxModel::paintCell(juce::Graphics& g, int rowNumber, int colum
     switch (columnId)
     {
     case 1:
-        text = LogStorage::getInstance().Get(rowNumber).StrTime();
+        text = LogMain::getInstance()->Get(rowNumber).StrTime();
         break;
     case 2:
-        text = LogStorage::getInstance().Get(rowNumber).StrLevel();
+        text = LogMain::getInstance()->Get(rowNumber).StrLevel();
         break;
     case 3:
-        text = LogStorage::getInstance().Get(rowNumber).StrMessage();
+        text = LogMain::getInstance()->Get(rowNumber).StrMessage();
         break;
     default:
         break;
