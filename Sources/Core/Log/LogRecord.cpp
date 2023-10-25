@@ -1,4 +1,4 @@
-#include "stdafx.h"
+#include <JuceHeader.h>
 #include "LogRecord.h"
 #include "LogMain.h"
 

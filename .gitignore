@@ -1,5 +1,2 @@
-Builds
-Builds/*
-ext/*
-JuceLibraryCode
-JuceLibraryCode/*
+build/
+Libs/

@@ -1,4 +1,4 @@
-#include "stdafx.h"
+#include <JuceHeader.h>
 #include "LogTableListBoxModel.h"
 #include "Core/Log/LogMain.h"
 
@@ -12,10 +12,10 @@ LogTableListBoxModel::~LogTableListBoxModel()
 
 int LogTableListBoxModel::getNumRows()
 {
-    return LogMain::getInstance()->GetSize();
+    return static_cast<int>(LogMain::getInstance()->GetSize());
 }
 
-void LogTableListBoxModel::paintRowBackground(juce::Graphics& g, int rowNumber, int width, int height, bool rowIsSelected)
+void LogTableListBoxModel::paintRowBackground(juce::Graphics& g, int rowNumber, [[maybe_unused]]int width, [[maybe_unused]]int height, bool rowIsSelected)
 {
     //auto alternateColour = getLookAndFeel().findColour(juce::ListBox::backgroundColourId).interpolatedWith(getLookAndFeel().findColour(juce::ListBox::textColourId), 0.03f);
     if (rowIsSelected)
@@ -24,7 +24,7 @@ void LogTableListBoxModel::paintRowBackground(juce::Graphics& g, int rowNumber, 
         g.fillAll(juce::Colours::lightblue/*alternateColour*/);
 }
 
-void LogTableListBoxModel::paintCell(juce::Graphics& g, int rowNumber, int columnId, int width, int height, bool rowIsSelected)
+void LogTableListBoxModel::paintCell(juce::Graphics& g, int rowNumber, int columnId, int width, int height, [[maybe_unused]]bool rowIsSelected)
 {
     //g.setColour(rowIsSelected ? juce::Colours::darkblue : getLookAndFeel().findColour(juce::ListBox::textColourId));
     g.setColour(juce::Colours::darkblue);

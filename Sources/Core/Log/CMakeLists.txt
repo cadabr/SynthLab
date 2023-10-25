@@ -1,0 +1,11 @@
+target_sources("${PROJECT_NAME}"
+    PRIVATE
+        LogMain.h
+        LogMain.cpp
+        LogRecord.h
+        LogRecord.cpp
+        LogTableListBoxModel.h
+        LogTableListBoxModel.cpp
+        LogWindow.h
+        LogWindow.cpp
+)

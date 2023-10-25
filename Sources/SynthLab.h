@@ -2,10 +2,10 @@
 
 #include "MainWindow.h"
 
-class SynthLabApplication : public juce::JUCEApplication
+class SynthLab : public juce::JUCEApplication
 {
 public:
-    SynthLabApplication();
+    SynthLab();
     const juce::String getApplicationName() override;
     const juce::String getApplicationVersion() override;
     bool moreThanOneInstanceAllowed() override;
@@ -18,7 +18,7 @@ public:
 
     void anotherInstanceStarted(const juce::String& commandLine) override;
 
-    static SynthLabApplication* JUCE_CALLTYPE getInstance() noexcept;
+    static SynthLab* JUCE_CALLTYPE getInstance() noexcept;
 
     juce::PropertiesFile* getPropsFile() const;
 

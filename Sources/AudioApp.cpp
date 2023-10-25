@@ -1,28 +1,28 @@
-#include "stdafx.h"
-#include "AudioAppDemo.h"
+#include <JuceHeader.h>
+#include "AudioApp.h"
 #include "Core/Log/LogRecord.h"
 
 using namespace juce;
 using namespace std;
 
-AudioAppDemo::AudioAppDemo()
+AudioApp::AudioApp()
 {
     setAudioChannels(0, 2);
     setSize(800, 600);
 }
 
-AudioAppDemo::~AudioAppDemo()
+AudioApp::~AudioApp()
 {
     shutdownAudio();
 }
 
-void AudioAppDemo::prepareToPlay(int samplesPerBlockExpected, double newSampleRate)
+void AudioApp::prepareToPlay(int samplesPerBlockExpected, double newSampleRate)
 {
     sampleRate = newSampleRate;
     expectedSamplesPerBlock = samplesPerBlockExpected;
 }
 
-void AudioAppDemo::getNextAudioBlock(const AudioSourceChannelInfo& bufferToFill)
+void AudioApp::getNextAudioBlock(const AudioSourceChannelInfo& bufferToFill)
 {
     bufferToFill.clearActiveBufferRegion();
     auto originalPhase = phase;
@@ -51,11 +51,11 @@ void AudioAppDemo::getNextAudioBlock(const AudioSourceChannelInfo& bufferToFill)
     }
 }
 
-void AudioAppDemo::releaseResources()
+void AudioApp::releaseResources()
 {
 }
 
-void AudioAppDemo::paint(juce::Graphics& g)
+void AudioApp::paint(juce::Graphics& g)
 {
     g.fillAll(getLookAndFeel().findColour(ResizableWindow::backgroundColourId));
 
@@ -84,12 +84,12 @@ void AudioAppDemo::paint(juce::Graphics& g)
     g.strokePath(wavePath, PathStrokeType(2.0f));
 }
 
-void AudioAppDemo::mouseDown(const MouseEvent& e)
+void AudioApp::mouseDown(const MouseEvent& e)
 {
     mouseDrag(e);
 }
 
-void AudioAppDemo::mouseDrag(const MouseEvent& e)
+void AudioApp::mouseDrag(const MouseEvent& e)
 {
     lastMousePosition = e.position;
 
@@ -101,12 +101,12 @@ void AudioAppDemo::mouseDrag(const MouseEvent& e)
     repaint();
 }
 
-void AudioAppDemo::mouseUp(const MouseEvent&)
+void AudioApp::mouseUp(const MouseEvent&)
 {
     //amplitude = 0.0f;
     repaint();
 }
 
-void AudioAppDemo::resized()
+void AudioApp::resized()
 {
 }

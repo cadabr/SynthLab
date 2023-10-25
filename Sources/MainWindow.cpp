@@ -1,7 +1,7 @@
-#include "stdafx.h"
+#include <JuceHeader.h>
 #include "MainWindow.h"
-#include "AudioAppDemo.h"
-#include "SynthLabApplication.h"
+#include "AudioApp.h"
+#include "SynthLab.h"
 
 using namespace juce;
 
@@ -9,7 +9,7 @@ MainWindow::MainWindow (String name)
 : DocumentWindow (name, Desktop::getInstance().getDefaultLookAndFeel().findColour (ResizableWindow::backgroundColourId), DocumentWindow::closeButton)
 {
     setUsingNativeTitleBar (true);
-    setContentOwned (new AudioAppDemo(), true);
+    setContentOwned (new AudioApp(), true);
     setResizable (true, true);
     centreWithSize (getWidth(), getHeight());
     setVisible (true);
@@ -17,5 +17,5 @@ MainWindow::MainWindow (String name)
 
 void MainWindow::closeButtonPressed()
 {
-    SynthLabApplication::getInstance()->systemRequestedQuit();
+    SynthLab::getInstance()->systemRequestedQuit();
 }

@@ -1,31 +1,31 @@
-#include "stdafx.h"
-#include "SynthLabApplication.h"
+#include <JuceHeader.h>
+#include "SynthLab.h"
 #include "Core/Log/LogMain.h"
 
 using namespace juce;
 
-SynthLabApplication::SynthLabApplication()
+SynthLab::SynthLab()
 : mainWindow(nullptr)
 , propsFile(nullptr)
 {
 }
 
-const String SynthLabApplication::getApplicationName()
+const String SynthLab::getApplicationName()
 {
     return ProjectInfo::projectName;
 }
 
-const String SynthLabApplication::getApplicationVersion()
+const String SynthLab::getApplicationVersion()
 {
     return ProjectInfo::versionString;
 }
 
-bool SynthLabApplication::moreThanOneInstanceAllowed()
+bool SynthLab::moreThanOneInstanceAllowed()
 {
     return false;
 }
 
-void SynthLabApplication::initialise (const String& commandLine)
+void SynthLab::initialise ([[maybe_unused]] const String& commandLine)
 {
     PropertiesFile::Options o;
     o.applicationName = "SynthLab";
@@ -45,7 +45,7 @@ void SynthLabApplication::initialise (const String& commandLine)
     mainWindow.reset (new MainWindow (getApplicationName()));
 }
 
-void SynthLabApplication::shutdown()
+void SynthLab::shutdown()
 {
     // Add your application's shutdown code here..
 
@@ -54,30 +54,30 @@ void SynthLabApplication::shutdown()
     propsFile.reset();
 }
 
-void SynthLabApplication::systemRequestedQuit()
+void SynthLab::systemRequestedQuit()
 {
     // This is called when the app is being asked to quit: you can ignore this
     // request and let the app carry on running, or call quit() to allow the app to close.
     quit();
 }
 
-void SynthLabApplication::anotherInstanceStarted (const juce::String& commandLine)
+void SynthLab::anotherInstanceStarted ([[maybe_unused]] const juce::String& commandLine)
 {
     // When another instance of the app is launched while this one is running,
     // this method is invoked, and the commandLine parameter tells you what
     // the other instance's command-line arguments were.
 }
 
-SynthLabApplication* JUCE_CALLTYPE SynthLabApplication::getInstance() noexcept
+SynthLab* JUCE_CALLTYPE SynthLab::getInstance() noexcept
 {
-    return dynamic_cast<SynthLabApplication*> (JUCEApplication::getInstance());
+    return static_cast<SynthLab*>(JUCEApplication::getInstance());
 }
 
-PropertiesFile* SynthLabApplication::getPropsFile() const
+PropertiesFile* SynthLab::getPropsFile() const
 {
     return propsFile.get();
 }
 
 //==============================================================================
 // This macro generates the main() routine that launches the app.
-START_JUCE_APPLICATION (SynthLabApplication)
+START_JUCE_APPLICATION (SynthLab)

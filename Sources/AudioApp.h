@@ -1,11 +1,11 @@
 #pragma once
 
-class AudioAppDemo : public juce::AudioAppComponent
+class AudioApp : public juce::AudioAppComponent
 {
 public:
-    AudioAppDemo();
+    AudioApp();
 
-    ~AudioAppDemo() override;
+    ~AudioApp() override;
 
     void prepareToPlay(int samplesPerBlockExpected, double newSampleRate) override;
 
@@ -33,5 +33,5 @@ private:
     int expectedSamplesPerBlock = 0;
     juce::Point<float> lastMousePosition;
 
-    JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (AudioAppDemo)
+    JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (AudioApp)
 };

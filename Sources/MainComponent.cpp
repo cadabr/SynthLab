@@ -1,4 +1,4 @@
-#include "stdafx.h"
+#include <JuceHeader.h>
 #include "MainComponent.h"
 
 MainComponent::MainComponent()

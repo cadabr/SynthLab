@@ -1,4 +1,4 @@
-#include "stdafx.h"
+#include <JuceHeader.h>
 #include "LogMain.h"
 
 JUCE_IMPLEMENT_SINGLETON(LogMain)
