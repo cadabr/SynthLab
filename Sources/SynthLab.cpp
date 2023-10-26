@@ -1,6 +1,7 @@
 #include <JuceHeader.h>
 #include "SynthLab.h"
 #include "Core/Log/LogMain.h"
+#include "CUDA/CudaHeader.cuh"
 
 using namespace juce;
 
@@ -41,6 +42,8 @@ void SynthLab::initialise ([[maybe_unused]] const String& commandLine)
 
     LOGD("debug");
     LOGD("debug 2");
+
+    ccu();
 
     mainWindow.reset (new MainWindow (getApplicationName()));
 }

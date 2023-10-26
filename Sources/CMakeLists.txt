@@ -19,3 +19,5 @@ target_sources("${PROJECT_NAME}"
         SynthLab.h
         SynthLab.cpp
 )
+
+add_subdirectory(CUDA)

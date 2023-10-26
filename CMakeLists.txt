@@ -1,6 +1,8 @@
-cmake_minimum_required(VERSION 3.15)
+cmake_minimum_required(VERSION 3.18)
 
-project(SynthLab VERSION 0.0.1)
+project(SynthLab VERSION 0.0.1 LANGUAGES CXX)
+
+message("Project name: " ${PROJECT_NAME})
 
 set(LIB_JUCE_TAG "7.0.8")
 
@@ -76,6 +78,11 @@ target_compile_definitions("${PROJECT_NAME}"
 # we're linking our executable target to the `juce::juce_audio_utils` module. Inter-module
 # dependencies are resolved automatically.
 
+target_link_directories("${PROJECT_NAME}"
+    PRIVATE
+        ${SythLabCudaPATH}
+)
+
 target_link_libraries("${PROJECT_NAME}"
     PRIVATE
         # Assets                # If we'd created a binary data target, we'd link to it here
@@ -90,6 +97,7 @@ target_link_libraries("${PROJECT_NAME}"
         juce::juce_graphics
         juce::juce_gui_basics
         juce::juce_gui_extra
+        SynthLabCuda
     PUBLIC
         juce::juce_recommended_config_flags
         juce::juce_recommended_lto_flags
